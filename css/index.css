@@ -75,7 +75,7 @@ body {
 
 .hero {
     height: 100vh;
-    background: url('../images/votre-image.png') top/cover;
+    background: url('../images/hero-bg.png') top/cover;
     display: flex;
     align-items: center;
     justify-content: flex-start;
