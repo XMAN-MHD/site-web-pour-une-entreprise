@@ -1,0 +1,495 @@
+/* Reset et styles de base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #2563eb;
+    --secondary-color: #e9effd;
+    --tertiary-color: #1e40af;
+    --text-color: #1f2937;
+    --white: #ffffff;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+}
+
+/* Navigation */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    background-color: var(--white);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.logo img {
+    height: 40px;
+}
+
+.navbar span {
+    font-weight: bolder;
+    color: var(--primary-color)
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--primary-color);
+}
+
+.mobile-menu {
+    display: none;
+}
+
+/* Hero Section CSS */
+
+.hero {
+    height: 100vh;
+    background: url('../images/votre-image.png') top/cover;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: left;
+    color: var(--white);
+    padding: 7rem 5%;
+    overflow: hidden; /* Pour éviter les débordements pendant l'animation */
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    animation: slideFromTop 1s ease-out forwards;
+}
+
+.hero-content p {
+    width: 50%;
+    text-align: justify;
+    margin-bottom: 3rem;
+    animation: slideFromLeft 1s ease-out forwards;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background-color: var(--primary-color);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    animation: slideFromBottom 1s ease-out forwards;
+}
+
+.cta-button:hover {
+    background-color: var(--tertiary-color);
+}
+
+/* Keyframes pour les animations */
+@keyframes slideFromTop {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideFromLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideFromBottom {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+/* contenu principale */
+.title{
+    color: var(--primary-color);
+    text-align: left;
+    text-transform: uppercase;
+    margin-bottom: 3rem;
+}
+
+.title::after {
+    content: ""; /* Required for the pseudo-element to render */
+    display: block; /* Allows width and height to be applied */
+    width: 100px;
+    height: 5px;
+    background-color: var(--primary-color); /* Sets the underline color */
+    text-align: left;
+    margin: 0;
+    margin-top: 1rem; /* Adds spacing between the h2 and the underline */
+}
+
+
+/* Features Section */
+.features {
+    padding: 5rem 5%;
+}
+
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.feature-card {
+    background-color: var(--white);
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 10px 10px 5px 15px black;
+    transition: transform 0.3s;
+    cursor: pointer;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+}
+
+.feature-card img {
+    width: 80px;
+    margin-bottom: 1rem;
+}
+
+/* About Section */
+.about {
+    padding: 7rem 5%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    background-color: var(--secondary-color);
+}
+
+.about-content p{
+    margin-bottom: 2rem;
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    box-shadow: 10px 10px black;
+    transition: transform 0.3s;
+}
+
+.video-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.video-container video:hover {
+    transform: translateY(-5px);
+}
+
+/* .contact-section */
+.contact {
+    padding: 3rem 5%;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 2rem;
+}
+
+.contact-content p{
+    margin-bottom: 40px;
+}
+
+.contact-container {
+    min-width: 600px;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    width: 100%;
+    box-shadow: 10px 10px black;
+    transition: transform 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 5px var(--tertiary-color);
+}
+
+.cta-button {
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 0.75rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.contact-container .cta-button 
+{
+    box-shadow: 10px 10px black;
+}
+
+.cta-button:hover {
+    background-color: var(--tertiary-color);
+}
+
+/* Footer */
+footer {
+    background-color: black;
+    color: #fff;
+    padding: 2rem 1rem;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.footer-section {
+    flex: 1 1 calc(33.33% - 1rem);
+    min-width: 200px;
+}
+
+.footer-section h4 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.footer-section p,
+.footer-section ul,
+.footer-section a {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #fff;
+}
+
+.footer-section a:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-section ul li a {
+    text-decoration: none;
+    color: #fff;;
+}
+
+.footer-bottom {
+    margin-top: 2rem;
+    border-top: 1px solid #444;
+    padding-top: 1rem;
+    font-size: 0.8rem;
+    color: #aaa;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .mobile-menu {
+        display: block;
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+
+    .mobile-menu span {
+        display: block;
+        width: 25px;
+        height: 3px;
+        background-color: var(--text-color);
+        margin: 5px 0;
+        transition: 0.3s;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--white);
+        padding: 1rem;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .about {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (min-width: 768px) {
+    .about h2{
+        text-align: left;
+    }
+
+    .about h2::after{
+        text-align: left;
+        margin: 0;
+        margin-top: 1rem;
+    }
+}
+
+@media (max-width: 1024px) {
+    .contact-container {
+        min-width: 420px;
+    }
+}
+
+@media (max-width: 924px) {
+
+    .features-grid{
+        grid-template-areas: 
+        "service-one service-two"
+        "service-three service-three";
+        grid-template-columns: 2fr 2fr;
+    }
+    #feature-card-one{
+        grid-area: service-one;
+    } #feature-card-two{
+        grid-area: service-two;
+    } #feature-card-three{
+        grid-area: service-three;
+    }
+}
+
+@media (max-width: 800px) {
+    .contact {
+        grid-template-columns: 1fr; /* Une seule colonne */
+    }
+    .contact-container {
+        min-width: 420px;
+    }
+}
+
+@media (max-width: 500px) {
+    .hero-content h1 {
+        font-size: 1.5rem;
+    }
+    .hero-content p {
+        width: 100%;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 468px) {
+    .contact-container {
+        min-width: 320px;
+    }
+    .features-grid{
+        grid-template-areas: 
+        "service-one service-one"
+        "service-two service-two"
+        "service-three service-three";
+        grid-template-columns: 2fr 2fr;
+    }
+}
+
+@media (max-width: 420px) {
+    .contact-container {
+        min-width: 220px;
+    }
+}
+
+@media (max-width: 380px) {
+    .hero-content h1 {
+        font-size: 1.2rem;
+    }
+}
+
